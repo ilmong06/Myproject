@@ -11,11 +11,15 @@ public class menu {
     static  void domenu() {
         Scanner cmd = new Scanner(System.in);
 
+        System.out.println("*******************menu*******************");
         System.out.println("write");
         System.out.println("modify");
         System.out.println("detail");
         System.out.println("delete");
         System.out.println("logout");
+        System.out.println("******************************************");
+
+
         mypage page = new mypage("nickname", "id", "pw", "name");
 
         while (true) {
@@ -36,15 +40,15 @@ public class menu {
             }
 
             if (input.equals("modify")) {
-                // Modify logic here
+
             }
 
             if (input.equals("detail")) {
-                // Detail logic here
+
             }
 
             if (input.equals("show")) {
-                // Show logic here
+
             }
 
             if (input.equals("mypage")) {

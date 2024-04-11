@@ -23,6 +23,7 @@ class mypage {
         System.out.printf("===============메모장==============%n");
         write.getMemoList();
         System.out.printf("===============일기장==============%n");
+        write.getdiaryList();
 
     }
 

@@ -7,6 +7,8 @@ import static org.example.Main.memoList;
 
 class write {
 
+    static String diaryy;
+
     static void memo(Scanner cmd) {
         while (true) {
             System.out.print("(종료 버튼 end)/할 일 입력:");
@@ -33,7 +35,7 @@ class write {
     static void diary(Scanner cmd){
 
         ArrayList<Integer> writenumber = new ArrayList<>();
-        String diaryy;
+
 
         System.out.print("(종료 버튼 end)/일기:");
         String diaryInput = cmd.nextLine();
@@ -48,13 +50,21 @@ class write {
         }
         System.out.println(diaryy);
 
-
-
         menu.domenu();
+
+
+
 
     }
 
 
+
+    static void getdiaryList() {
+
+        System.out.println(diaryy);
+
+
+    }
 
 
 
