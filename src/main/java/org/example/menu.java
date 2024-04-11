@@ -35,8 +35,8 @@ public class menu {
             }
 
             if (input.equals("write")) {
-                write.memo(cmd);
-                write.diary(cmd);
+                member.write.memo(cmd);
+                member.write.diary(cmd);
             }
 
             if (input.equals("modify")) {

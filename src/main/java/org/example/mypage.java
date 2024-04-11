@@ -21,9 +21,9 @@ class mypage {
         System.out.printf("작성자 : %s %n", nickname);
        //  System.out.printf("날짜 : %s %n", );
         System.out.printf("===============메모장==============%n");
-        write.getMemoList();
+        member.write.getMemoList();
         System.out.printf("===============일기장==============%n");
-        write.getdiaryList();
+        member.write.getdiaryList();
 
     }
 
