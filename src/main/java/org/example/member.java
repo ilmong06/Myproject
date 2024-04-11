@@ -2,55 +2,42 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import org.example.menu;
-import static org.example.Main.main;
 
+import static org.example.Main.main;
+import static org.example.member.*;
 
 public class member {
     static Scanner cmd = new Scanner(System.in);
 
     static ArrayList<String> id = new ArrayList<>();
-    static String pw;
-    static String name;
-    static String nickname;
+    public static String pw;
+    public static String name;
+    public static String nickname;
     String loginIdinput;
     String loginPwinput;
 
-
     static void login() {
-
         while (true){
-
             System.out.print("아이디 :");
             String loginIdinput = cmd.nextLine();
 
             if (id.contains(loginIdinput)){
-
                 System.out.print("비밀번호:");
                 String loginPwinput = cmd.nextLine();
-
                 if(loginPwinput.equals(pw)){
-
                     System.out.println("로그인 성공!");
                     menu.domenu();
                 }
                 else {
                     System.out.print("존재하지 않는 비밀번호");
                 }
-
-
             }
             else {
                 System.out.println("존재하지 않는 아이디");
-
                 main(new String[] {});
-
             }
         }
-
-
     }
-
 
     static void join() {
         System.out.print("아이디 생성: ");
@@ -78,4 +65,3 @@ public class member {
         }
     }
 }
-

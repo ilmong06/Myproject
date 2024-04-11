@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class write {
@@ -7,6 +8,8 @@ class write {
 
 
     static void memo(Scanner cmd) {
+
+
 
 
 
@@ -33,11 +36,11 @@ class write {
 
         }
 
-
     }
 
     static void diary(Scanner cmd){
 
+        ArrayList<Integer> writenumber = new ArrayList<>();
         String diaryy;
 
         System.out.print("(종료 버튼 end)/일기:");
@@ -52,6 +55,8 @@ class write {
             System.out.printf("%d.%s%n", i + 1, Main.memoList.get(i));
         }
         System.out.println(diaryy);
+
+
 
         menu.domenu();
 
