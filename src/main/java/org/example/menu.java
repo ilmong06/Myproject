@@ -11,13 +11,11 @@ public class menu {
     static  void domenu() {
         Scanner cmd = new Scanner(System.in);
 
-        System.out.println("*******************menu*******************");
-        System.out.println("write");
-        System.out.println("modify");
-        System.out.println("detail");
-        System.out.println("delete");
-        System.out.println("logout");
-        System.out.println("******************************************");
+        System.out.println("\u001B[44m\u001B[30m*******************menu*******************\u001B[0m");
+        System.out.println("\u001B[44m\u001B[30m*      write | modify | detail           *\u001B[0m");
+        System.out.println("\u001B[44m\u001B[30m*       show | logout | delate           *\u001B[0m");
+        System.out.println("\u001B[44m\u001B[30m******************************************\u001B[0m\u001B[0m");
+
 
 
         mypage page = new mypage("nickname", "id", "pw", "name");

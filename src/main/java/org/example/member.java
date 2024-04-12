@@ -14,33 +14,36 @@ public class member {
     public static String pw;
     public static String name;
     public static String nickname;
-    String loginIdinput;
+    static String loginIdinput;
     String loginPwinput;
-
-
+    static String lastId;
 
 
 
     static void login() {
         while (true) {
             System.out.print("아이디 :");
-            String loginIdinput = cmd.nextLine();
+            loginIdinput = cmd.nextLine();
 
             if (id.contains(loginIdinput)) {
                 System.out.print("비밀번호:");
                 String loginPwinput = cmd.nextLine();
                 if (loginPwinput.equals(pw)) {
-                    System.out.println("로그인 성공!");
+                    System.out.println("\u001B[31m로그인 성공!\u001B[0m");
+                    System.out.println("--------------------------------");
                     menu.domenu();
                 } else {
                     System.out.print("존재하지 않는 비밀번호");
                 }
-            } else {
+            }
+
+            else {
                 System.out.println("존재하지 않는 아이디");
                 main(new String[]{});
             }
         }
     }
+
 
     static void join() {
         System.out.print("아이디 생성: ");
@@ -93,14 +96,26 @@ public class member {
         }
 
         public static ArrayList<String> getMemoList() {
+            lastId = id.get(id.size() - 1);
 
 
-           //int lastId = id.size();(mypage겁색했을때 aa작성자와 bb작성자가
-            //동일한 글이 나옴
+            if(lastId.equals(loginIdinput)){
 
-            for(int i = 0; i < memoList.size(); i++) {
-                System.out.printf("%d.%s%n", i + 1, memoList.get(i));
+                for(int i = 0; i < memoList.size(); i++) {
+                    System.out.printf("%d.%s%n", i + 1, memoList.get(i));
+                }
+
+            }else if (id.size() == 1){
+
+                for(int i = 0; i < memoList.size(); i++) {
+                    System.out.printf("%d.%s%n", i + 1, memoList.get(i));
+                }
+
+            }else {
+                System.out.println("글이 존재하지 않습니다.");
             }
+
+
             return memoList;
 
         }
@@ -131,12 +146,27 @@ public class member {
 
         static void getdiaryList() {
 
-            System.out.println(diaryy);
+
+
+            if(lastId.equals(loginIdinput)){
+
+                System.out.println(diaryy);
+
+            }else if (id.size() == 1){
+
+                System.out.println(diaryy);
+
+            }else {
+                System.out.println("글이 존재하지 않습니다.");
+            }
+
+
+
+
 
 
         }
 
 
     }
-
 }
