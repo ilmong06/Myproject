@@ -1,11 +1,11 @@
 package org.example;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Main {
     static Scanner cmd = new Scanner(System.in);
-    static  ArrayList<String> memoList = new ArrayList<>();
+
     public static void main(String[] args) {
 
 
@@ -15,10 +15,10 @@ public class Main {
 
         if(maininput.equals("로그인")){
 
-            member.login();
+            Member.login();
 
         } else if (maininput.equals("회원가입")) {
-            member.join();
+            Member.join();
 
         }
         else {

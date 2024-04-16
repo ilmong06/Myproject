@@ -1,72 +1,58 @@
 package org.example;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-import static org.example.Main.main;
-
 public class menu {
+    static String loggedInUserId;
 
-    static  void domenu() {
+    static void domenu() {
         Scanner cmd = new Scanner(System.in);
 
         System.out.println("*******************menu*******************");
-        System.out.println("write");
-        System.out.println("modify");
-        System.out.println("detail");
-        System.out.println("delete");
-        System.out.println("logout");
+        System.out.println("*         write | modify | detail        *");
+        System.out.println("*        delete | logout | mypage        *");
         System.out.println("******************************************");
-
-
-        mypage page = new mypage("nickname", "id", "pw", "name");
 
         while (true) {
             System.out.print("메뉴검색:");
             String input = cmd.nextLine();
-
-            if (input.length() == 0) {
-                continue;
-            }
 
             if (input.equals("exit")) {
                 break;
             }
 
             if (input.equals("write")) {
-                member.write.memo(cmd);
-                member.write.diary(cmd);
+                Member.writeMemo(loggedInUserId);
+                Member.writeDiary(loggedInUserId);
             }
 
             if (input.equals("modify")) {
-
+                // modify 기능 호출
             }
 
             if (input.equals("detail")) {
-
+                // detail 기능 호출
             }
 
             if (input.equals("show")) {
-
+                // show 기능 호출
             }
 
             if (input.equals("mypage")) {
-                page.show();
-
+                mypage.show(loggedInUserId);
             }
 
-            if (input.equals("logout")){
-                String id;
-                String pw;
-
+            if (input.equals("logout")) {
                 System.out.println("로그아웃 완료");
-                main(new String[] {});
+                loggedInUserId = null;
+                Main.main(new String[] {});
             }
         }
 
         cmd.close();
     }
+
+    static void setLoggedInUserId(String userId) {
+        loggedInUserId = userId;
+    }
 }
-
-
