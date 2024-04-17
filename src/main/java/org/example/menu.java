@@ -9,7 +9,7 @@ public class menu {
         Scanner cmd = new Scanner(System.in);
 
         System.out.println("*******************menu*******************");
-        System.out.println("*         write | modify | detail        *");
+        System.out.println("*         write | modify | finish        *");
         System.out.println("*        delete | logout | mypage        *");
         System.out.println("******************************************");
 

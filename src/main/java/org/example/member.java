@@ -45,7 +45,7 @@ public class Member {
             if (credentials.containsKey(loginIdinput)) {
                 String storedPw = credentials.get(loginIdinput);
                 if (storedPw.equals(loginPwinput)) {
-                    System.out.println("로그인 성공!");
+                    System.out.println("\u001B[31m로그인 성공!\u001B[0m");
                     menu.setLoggedInUserId(loginIdinput);
                     menu.domenu();
                     break;
@@ -116,6 +116,10 @@ public class Member {
             for (int i = 0; i < memoList.size(); i++) {
                 System.out.printf("%d. %s%n", i + 1, memoList.get(i));
             }
+
+            System.out.print("\u001B[31m" +"(완료)"+"\u001B[0m");
+            System.out.println("\u001B[31m" +mypage.blist +"\u001B[0m");
+
         }
     }
 
