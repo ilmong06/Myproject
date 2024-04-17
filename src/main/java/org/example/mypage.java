@@ -14,7 +14,7 @@ class mypage {
     static void show(String loggedInUserId) {
         System.out.printf("작성자 : %s %n", loggedInUserId);
         System.out.printf("===================================%n");
-        Member.viewMemo(loggedInUserId);
+        Member.viewMemo(loggedInUserId, blist);
 
         System.out.printf("===================================%n");
         Member.viewDiary(loggedInUserId);
@@ -40,7 +40,7 @@ class mypage {
             memoList.remove(check - 1);
             //System.out.print("\u001B[31m(완료)\u001B[0m");
             //System.out.println("\u001B[31m" + blist+ "\u001B[0m");
-            Member.viewMemo(loggedInUserId);
+            Member.viewMemo(loggedInUserId, blist);
         }
 
 
