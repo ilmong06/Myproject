@@ -8,15 +8,15 @@ public class Main {
     public static void main(String[] args) {
 
 
-        System.out.print("로그인/회원가입 선택:");
+        System.out.print("login/join 선택:");
 
         String maininput = cmd.nextLine();
 
-        if(maininput.equals("로그인")){
+        if(maininput.equals("login")){
 
             Member.login();
 
-        } else if (maininput.equals("회원가입")) {
+        } else if (maininput.equals("join")) {
             Member.join();
 
         }

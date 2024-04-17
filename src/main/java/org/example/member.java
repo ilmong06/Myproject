@@ -9,8 +9,8 @@ import static org.example.Main.main;
 
 
 public class Member {
-    private static ArrayList<String> memoList = new ArrayList<>();
-
+ // private static  ArrayList<String> memoList = new ArrayList<>();
+  private static HashMap<String, ArrayList<String>> userMemo = new HashMap<>();
 
     static ArrayList<String> id = new ArrayList<>();
 
@@ -18,7 +18,7 @@ public class Member {
 
     //static HashMap<String, ArrayList<String>> userMemo = new HashMap<>(); // 회원의 메모를 저장하는 HashMap
     // static HashMap<String, String> userDiary = new HashMap<>(); // 회원의 일기를 저장하는 HashMap
-    private static HashMap<String, ArrayList<String>> userMemo = new HashMap<>(); // 회원의 메모를 저장하는 HashMap
+    //private static HashMap<String, ArrayList<String>> userMemo = new HashMap<>(); // 회원의 메모를 저장하는 HashMap
     private static HashMap<String, String> userDiary = new HashMap<>(); // 회원의 일기를 저장하는 HashMap
     public static String pw;
     public static String name;
@@ -107,19 +107,6 @@ public class Member {
         }
     }
 
-
-
-    /*static void viewMemo(String loggedInUserId) {
-         ArrayList<String> memoList = userMemo.getOrDefault(loggedInUserId, new ArrayList<>());
-         if (memoList.isEmpty()) {
-             System.out.println("작성된 메모가 없습니다.");
-         } else {
-             System.out.println("===== 작성된 메모 목록 =====");
-             for (int i = 0; i < memoList.size(); i++) {
-                 System.out.printf("%d. %s%n", i + 1, memoList.get(i));
-             }
-         }
-     }*/
     static void viewMemo(String loggedInUserId) {
         ArrayList<String> memoList = userMemo.getOrDefault(loggedInUserId, new ArrayList<>());
         if (memoList.isEmpty()) {
@@ -133,7 +120,6 @@ public class Member {
     }
 
 
-
     static void writeDiary(String loggedInUserId) {
         System.out.print("일기: ");
         String diaryInput = cmd.nextLine();
@@ -141,17 +127,6 @@ public class Member {
         menu.domenu();
     }
 
-
-    /*static void viewDiary(String loggedInUserId) {
-        String diary = userDiary.getOrDefault(loggedInUserId, "");
-        if (diary.isEmpty()) {
-            System.out.println("작성된 일기가 없습니다.");
-        } else {
-            System.out.println("===== 작성된 일기 =====");
-            System.out.println(diary);
-        }
-    }
-}*/
     static void viewDiary(String loggedInUserId) {
         String diary = userDiary.getOrDefault(loggedInUserId, "");
         if (diary.isEmpty()) {
@@ -161,6 +136,7 @@ public class Member {
             System.out.println(diary);
         }
     }
-
-
+    public static ArrayList<String> getMemoList(String loggedInUserId) {
+        return userMemo.getOrDefault(loggedInUserId, new ArrayList<>());
+    }
 }

@@ -40,6 +40,7 @@ public class menu {
 
             if (input.equals("mypage")) {
                 mypage.show(loggedInUserId);
+                mypage.finish();
             }
 
             if (input.equals("logout")) {
@@ -55,4 +56,6 @@ public class menu {
     static void setLoggedInUserId(String userId) {
         loggedInUserId = userId;
     }
+
+
 }
