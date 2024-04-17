@@ -2,6 +2,8 @@ package org.example;
 
 import java.util.Scanner;
 
+import static org.example.mypage.blist;
+
 public class menu {
     static String loggedInUserId;
 
