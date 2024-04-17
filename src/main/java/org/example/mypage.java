@@ -1,12 +1,8 @@
 package org.example;
 
-
-
-
 import static org.example.menu.loggedInUserId;
 
 class mypage {
-
 
     static void show(String loggedInUserId) {
         System.out.printf("작성자 : %s %n", loggedInUserId);
