@@ -12,6 +12,7 @@ public class Member {
  // private static  ArrayList<String> memoList = new ArrayList<>();
   private static HashMap<String, ArrayList<String>> userMemo = new HashMap<>();
 
+
     static ArrayList<String> id = new ArrayList<>();
 
     static Scanner cmd = new Scanner(System.in);
@@ -107,7 +108,7 @@ public class Member {
         }
     }
 
-    static void viewMemo(String loggedInUserId, ArrayList<String> blist) {
+    static void viewMemo(String loggedInUserId, HashMap<String, ArrayList<String>> blist) {
         ArrayList<String> memoList = userMemo.getOrDefault(loggedInUserId, new ArrayList<>());
         if (memoList.isEmpty()) {
             System.out.println("작성된 메모가 없습니다.");
@@ -116,9 +117,9 @@ public class Member {
             for (int i = 0; i < memoList.size(); i++) {
                 System.out.printf("%d. %s%n", i + 1, memoList.get(i));
             }
-
+            ArrayList<String> userBlist = blist.getOrDefault(loggedInUserId, new ArrayList<>());
             System.out.print("\u001B[31m" +"(완료)"+"\u001B[0m");
-            System.out.println("\u001B[31m" +mypage.blist +"\u001B[0m");
+            System.out.println("\u001B[31m" +userBlist +"\u001B[0m");
 
         }
     }
