@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+import static org.example.Member.userMemo;
 import static org.example.menu.domenu;
 import static org.example.menu.loggedInUserId;
 
@@ -14,7 +15,7 @@ class mypage {
     static void show(String loggedInUserId) {
         System.out.printf("작성자 : %s %n", loggedInUserId);
         System.out.printf("===================================%n");
-        Member.viewMemo(loggedInUserId, blist);
+        Member.viewMemo(loggedInUserId);
 
         System.out.printf("===================================%n");
         Member.viewDiary(loggedInUserId);
@@ -32,7 +33,7 @@ class mypage {
         ArrayList<String> memoList = Member.getMemoList(loggedInUserId);
 
 
-        if (memoList.size() > check) {
+        if (memoList.size() >= check) {
 
 
             b = memoList.get(check-1) ;
@@ -40,7 +41,8 @@ class mypage {
             memoList.remove(check - 1);
             //System.out.print("\u001B[31m(완료)\u001B[0m");
             //System.out.println("\u001B[31m" + blist+ "\u001B[0m");
-            Member.viewMemo(loggedInUserId, blist);
+            Member.viewMemo(loggedInUserId);
+            userMemo.put(loggedInUserId, blist);
         }
 
 

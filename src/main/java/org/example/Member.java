@@ -9,16 +9,14 @@ import static org.example.Main.main;
 
 
 public class Member {
- // private static  ArrayList<String> memoList = new ArrayList<>();
-  private static HashMap<String, ArrayList<String>> userMemo = new HashMap<>();
+
+  static HashMap<String, ArrayList<String>> userMemo = new HashMap<>();
 
     static ArrayList<String> id = new ArrayList<>();
 
     static Scanner cmd = new Scanner(System.in);
 
-    //static HashMap<String, ArrayList<String>> userMemo = new HashMap<>(); // 회원의 메모를 저장하는 HashMap
-    // static HashMap<String, String> userDiary = new HashMap<>(); // 회원의 일기를 저장하는 HashMap
-    //private static HashMap<String, ArrayList<String>> userMemo = new HashMap<>(); // 회원의 메모를 저장하는 HashMap
+
     private static HashMap<String, String> userDiary = new HashMap<>(); // 회원의 일기를 저장하는 HashMap
     public static String pw;
     public static String name;
@@ -107,7 +105,7 @@ public class Member {
         }
     }
 
-    static void viewMemo(String loggedInUserId, ArrayList<String> blist) {
+    static void viewMemo(String loggedInUserId) {
         ArrayList<String> memoList = userMemo.getOrDefault(loggedInUserId, new ArrayList<>());
         if (memoList.isEmpty()) {
             System.out.println("작성된 메모가 없습니다.");
