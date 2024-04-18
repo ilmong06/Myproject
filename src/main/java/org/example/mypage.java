@@ -14,12 +14,40 @@ class mypage {
     static void show(String loggedInUserId) {
         System.out.printf("작성자 : %s %n", loggedInUserId);
         System.out.printf("===================================%n");
-        Member.viewMemo(loggedInUserId,blist);
+
+        // 회원별 날짜별 메모 출력
+        HashMap<String, HashMap<String, ArrayList<String>>> memoByDate = Member.getMemoByDate();
+        HashMap<String, ArrayList<String>> userMemoByDate = memoByDate.getOrDefault(loggedInUserId, new HashMap<>());
+
+        for (String date : userMemoByDate.keySet()) {
+            System.out.println("날짜: " + date);
+            ArrayList<String> memoList = userMemoByDate.get(date);
+            for (int i = 0; i < memoList.size(); i++) {
+                System.out.printf("%d. %s%n", i + 1, memoList.get(i));
+            }
+            System.out.println(); // 각 날짜의 메모 출력 후 한 줄 띄기
+        }
 
         System.out.printf("===================================%n");
         Member.viewDiary(loggedInUserId);
     }
+    static void viewMemoByDate(String loggedInUserId) {
+        HashMap<String, HashMap<String, ArrayList<String>>> memoByDate = Member.getMemoByDate();
+        HashMap<String, ArrayList<String>> userMemoByDate = memoByDate.getOrDefault(loggedInUserId, new HashMap<>());
 
+        if (userMemoByDate.isEmpty()) {
+            System.out.println("작성된 메모가 없습니다.");
+        } else {
+            System.out.println("===== 작성된 메모 목록 =====");
+            for (String date : userMemoByDate.keySet()) {
+                System.out.printf("[%s]%n", date);
+                ArrayList<String> memoList = userMemoByDate.get(date);
+                for (int i = 0; i < memoList.size(); i++) {
+                    System.out.printf("%d. %s%n", i + 1, memoList.get(i));
+                }
+            }
+        }
+    }
 
     static void finish() {
         System.out.printf("체크 할 항목을 선택하세요:");
@@ -40,4 +68,3 @@ class mypage {
         }
     }
 }
-

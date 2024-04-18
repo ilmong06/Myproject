@@ -1,16 +1,20 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
 
 
 import static org.example.Main.main;
 
 
 public class Member {
- // private static  ArrayList<String> memoList = new ArrayList<>();
-  private static HashMap<String, ArrayList<String>> userMemo = new HashMap<>();
+    // private static  ArrayList<String> memoList = new ArrayList<>();
+    private static HashMap<String, ArrayList<String>> userMemo = new HashMap<>();
+    private static HashMap<String, HashMap<String, ArrayList<String>>> memoByDate = new HashMap<>();
+
 
 
     static ArrayList<String> id = new ArrayList<>();
@@ -96,16 +100,37 @@ public class Member {
         while (true) {
             System.out.print("메모 작성: ");
             String userInput = cmd.nextLine(); // 사용자 입력 받기
+
+            // 현재 날짜 가져오기
+            String currentDate = getCurrentDate();
+
+            // 해당 날짜의 메모를 저장하기 위한 작업
+            HashMap<String, ArrayList<String>> userMemoByDate = memoByDate.getOrDefault(loggedInUserId, new HashMap<>());
             ArrayList<String> memoList = userMemo.getOrDefault(loggedInUserId, new ArrayList<>());
-            memoList.add(userInput); // 해당 회원의 메모 목록에 추가
+            memoList.add(userInput);
             userMemo.put(loggedInUserId, memoList);
 
+            // 해당 날짜의 메모를 저장
+            userMemoByDate.put(currentDate, memoList);
+            memoByDate.put(loggedInUserId, userMemoByDate);
+
+            // 'end' 입력 시 종료
             if (userInput.equals("end")) {
                 memoList.remove(memoList.size() - 1);
                 System.out.println("메모가 작성되었습니다.");
                 break;
             }
         }
+    }
+
+    static HashMap<String, HashMap<String, ArrayList<String>>> getMemoByDate() {
+        return memoByDate;
+    }
+
+    static String getCurrentDate() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        return formatter.format(date);
     }
 
     static void viewMemo(String loggedInUserId, HashMap<String, ArrayList<String>> blist) {
@@ -144,4 +169,6 @@ public class Member {
     public static ArrayList<String> getMemoList(String loggedInUserId) {
         return userMemo.getOrDefault(loggedInUserId, new ArrayList<>());
     }
+
+
 }

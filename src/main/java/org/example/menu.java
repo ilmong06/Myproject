@@ -2,8 +2,6 @@ package org.example;
 
 import java.util.Scanner;
 
-import static org.example.mypage.blist;
-
 public class menu {
     static String loggedInUserId;
 
@@ -11,7 +9,7 @@ public class menu {
         Scanner cmd = new Scanner(System.in);
 
         System.out.println("*******************menu*******************");
-        System.out.println("*         write | modify | finish        *");
+        System.out.println("*         write | modify | show        *");
         System.out.println("*        delete | logout | mypage        *");
         System.out.println("******************************************");
 
